@@ -26,9 +26,9 @@
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
         alert(httpRequest.responseText);
-      } else {
-        alert('request에 뭔가 문제가 있어요.');
-      }
+      } 
+    } else {
+      alert('request에 뭔가 문제가 있어요.');
     }
   }
 })();
