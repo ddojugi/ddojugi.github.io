@@ -2,7 +2,7 @@
 <html>
 <body>
 <center>
-<h2>CORS POC TRY3<h2>
+<h2>CORS POC TRY4<h2>
 <button id="ajaxButton" type="button">Make a request</button>
 <script>
 (function() {
@@ -18,7 +18,6 @@
     }
     httpRequest.onreadystatechange = alertContents;
     httpRequest.open('GET', 'https://kr.ncsoft.com/kr/pr/news.do', true);
-    http.withCredentials = true;
     httpRequest.send();
   }
 
